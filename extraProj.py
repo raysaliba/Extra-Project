@@ -29,3 +29,22 @@ select_term = Select(select_term_box)
 select_term.select_by_value("202410")
 submit_btn = driver.find_element(By.XPATH, "/html/body/div[3]/form/input[2]")
 submit_btn.click()
+subject_select_element = driver.find_element(By.XPATH, '//[@id="subj_id"]')
+subject_select = Select(subject_select_element)
+subject_select.select_by_value("CSC")
+campus_select_element = driver.find_element(By.XPATH, '//*[@id="camp_id"]')
+campus_select = Select(campus_select_element)
+campus_select.select_by_value("2")
+course_offerings_btn = driver.find_element(By.XPATH, '/html/body/div[3]/form/input[12]')
+course_offerings_btn.click()
+name_elements = driver.find_elements(By.CSS_SELECTOR, ".ddtitle > a")
+names = [element.text for element in name_elements]
+instructor_elements = driver.find_elements(By.CSS_SELECTOR, "tr > .dddefault:nth-child(7)")
+instructors = [element.text for element in instructor_elements]
+time_elements = driver.find_elements(By.CSS_SELECTOR, "tr > .dddefault:nth-child(2)")
+times = [element.text for element in time_elements]
+day_elements = driver.find_elements(By.CSS_SELECTOR, "tr > .dddefault:nth-child(3)")
+days = [element.text for element in day_elements]
+location_elements = driver.find_elements(By.CSS_SELECTOR, "tr > .dddefault:nth-child(4)")
+locations = [element.text for element in location_elements]
+data = list(zip(names, instructors, locations, times, days))
