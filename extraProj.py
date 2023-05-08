@@ -52,9 +52,6 @@ location_elements = driver.find_elements(By.CSS_SELECTOR, "tr > .dddefault:nth-c
 locations = [element.text for element in location_elements]
 data = list(zip(names, instructors, locations, times, days))
 
-
-Updated variable names
-
 login_btn = driver.find_element(By.XPATH, "//input[@type='submit']")
 login_btn.click()
 my_courses_btn = driver.find_element(By.XPATH, '//[@id="zz4_TopNavigationMenuV4"]/div/ul/li/ul/li[3]/a')
